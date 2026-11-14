@@ -1,0 +1,34 @@
+{
+  "name": "@clovernt/sdk",
+  "version": "0.0.0-dev.g6c156da",
+  "description": "Type definitions and runtime proxy for CloverNT JavaScript plugins (generated from CloverCore).",
+  "license": "SEE IN LICENSE",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CloverNT/CloverCore.git",
+    "directory": "framework"
+  },
+  "peerDependencies": {
+    "electron": "*",
+    "@types/node": "*"
+  },
+  "peerDependenciesMeta": {
+    "electron": {
+      "optional": true
+    },
+    "@types/node": {
+      "optional": true
+    }
+  },
+  "cloverCore": {
+    "version": "0.0.0-6c156da",
+    "commit": "6c156daa533cd73677c57a2b196c3a165eafbb34"
+  }
+}
