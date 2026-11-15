@@ -1,6 +1,9 @@
 'use strict';
 
 // src/sdk.ts
+function definePlugin(plugin) {
+  return plugin;
+}
 function runtime() {
   const api = globalThis.clovernt;
   if (!api) {
@@ -15,3 +18,4 @@ var clovernt = new Proxy({}, {
 });
 
 exports.clovernt = clovernt;
+exports.definePlugin = definePlugin;
