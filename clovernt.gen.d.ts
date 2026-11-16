@@ -96,6 +96,7 @@ export class Packet {
     readonly seq: number;
     readonly command: string;
     readonly uin: string;
+    readonly uid: string;
     readonly encryption: Encryption;
     readonly body: Uint8Array;
 }
@@ -104,6 +105,7 @@ export class Packet {
  */
 export class Credential {
     readonly uin: string;
+    readonly uid: string;
     readonly a2: Uint8Array;
     readonly d2: Uint8Array;
     readonly d2Key: Uint8Array;

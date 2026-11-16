@@ -22,8 +22,10 @@ export interface PacketEventPayload {
     seq: number;
     command: string;
     uin: string;
+    uid: string;
     encryption: "none" | "d2key" | "zero" | string;
     body: string;
+    injected: boolean;
 }
 export interface O3EventPayload {
     command: string;
@@ -31,6 +33,7 @@ export interface O3EventPayload {
 }
 export interface CredentialEventPayload {
     uin: string;
+    uid: string;
     a2: string;
     d2: string;
     d2Key: string;
