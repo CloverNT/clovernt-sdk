@@ -16,6 +16,14 @@ export enum Encryption {
     D2Key = 1,
     ZeroKey = 2,
 }
+export enum EventPriority {
+    Lowest = 0,
+    Low = 1,
+    Normal = 2,
+    High = 3,
+    Highest = 4,
+    Monitor = 5,
+}
 /**
  * A scoped logger.
  */
@@ -45,6 +53,10 @@ export class PluginManager {
     load(name: string): boolean;
     unload(name: string): boolean;
     reload(name: string): boolean;
+    loadWithResult(name: string): PluginActionResult;
+    unloadWithResult(name: string): PluginActionResult;
+    reloadWithResult(name: string): PluginActionResult;
+    rescanWithResult(): PluginActionResult;
     registerLoader(id: string, config: object): boolean;
     unregisterLoader(id: string): boolean;
 }
@@ -52,8 +64,8 @@ export class PluginManager {
  * Bidirectional C++<->JS event bus.
  */
 export class Events {
-    on(name: string, callback: (arg0: unknown) => void): number;
-    once(name: string, callback: (arg0: unknown) => void): number;
+    on(name: string, callback: (arg0: unknown) => void, priority?: EventPriority): number;
+    once(name: string, callback: (arg0: unknown) => void, priority?: EventPriority): number;
     off(id: number): boolean;
     emit(name: string, payload: unknown): boolean;
 }
@@ -88,6 +100,16 @@ export class PluginScan {
     readonly description: string | undefined;
     readonly passive: boolean;
     readonly loaded: boolean;
+    readonly unloadable: boolean;
+    readonly builtin: boolean;
+}
+/**
+ * Result of a plugin lifecycle or rescan operation.
+ */
+export class PluginActionResult {
+    readonly ok: boolean;
+    readonly error: string | undefined;
+    readonly count: number;
 }
 /**
  * A decoded SSO packet (body: decrypted payload for recv / plaintext for send).
