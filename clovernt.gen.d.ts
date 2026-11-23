@@ -74,6 +74,14 @@ export class Events {
  */
 export class PacketApi {
     ready(): boolean;
+    guardAvailable(): boolean;
+    lockedFamilies(): number;
+    packetLocked(): boolean;
+    credentialLocked(): boolean;
+    patchGuardState(): number;
+    patchGuardActive(): boolean;
+    patchGuardEnabledNext(): boolean;
+    patchGuardRestartPending(): boolean;
     credential(): Credential | undefined;
     send(command: string, body: Uint8Array): number | undefined;
     call(command: string, body: Uint8Array, timeoutMs: number): Packet | undefined;
@@ -121,6 +129,7 @@ export class Packet {
     readonly uid: string;
     readonly encryption: Encryption;
     readonly body: Uint8Array;
+    readonly injected: boolean;
 }
 /**
  * Captured session credentials.

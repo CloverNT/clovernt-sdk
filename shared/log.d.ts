@@ -1,4 +1,11 @@
-import { type LogLevelValue } from "./bridge";
+export declare const LogLevel: {
+    readonly Debug: 0;
+    readonly Info: 1;
+    readonly Warning: 2;
+    readonly Error: 3;
+    readonly Fatal: 4;
+};
+export type LogLevelValue = (typeof LogLevel)[keyof typeof LogLevel];
 export interface CloverLogger {
     debug(message: string): void;
     info(message: string): void;
