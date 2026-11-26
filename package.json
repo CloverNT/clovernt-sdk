@@ -1,6 +1,6 @@
 {
   "name": "@clovernt/sdk",
-  "version": "0.0.0-dev.gfc650ff",
+  "version": "0.0.0-dev.g67449a9",
   "description": "Type definitions and runtime proxy for CloverNT JavaScript plugins (generated from CloverCore).",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
@@ -28,7 +28,7 @@
     }
   },
   "cloverCore": {
-    "version": "0.0.0-fc650ff",
-    "commit": "fc650ff2e335fa96ae2638b74cadbc226dc1c092"
+    "version": "0.0.0-67449a9",
+    "commit": "67449a98a72e42e1bef259bd765561fc2ff03bbb"
   }
 }
